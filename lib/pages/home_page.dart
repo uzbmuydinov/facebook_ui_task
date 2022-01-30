@@ -168,6 +168,13 @@ class _HomePageState extends State<HomePage> {
 
               children: [
                 SizedBox(width: 10,),
+
+                makeStory(
+                  storyImage: "assets/images/stories/story_me.jpg",
+                  userImage: "assets/images/main/main_me.jpg",
+                  UserName: "Создатъ историю",
+                ),
+
                 // Xurshid aka
                 makeStory(
                   storyImage: "assets/images/stories/s1_xa.jpg",
@@ -261,7 +268,7 @@ class _HomePageState extends State<HomePage> {
                   )
                 ),
               ),
-              Text(UserName, style: TextStyle(color: Colors.white, fontSize: 13),),
+              Text(UserName, style: TextStyle(color: Colors.white, fontSize: 13, fontFamily: "roboto"),),
             ],
           ),
         ),
