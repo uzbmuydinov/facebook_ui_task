@@ -1,26 +1,26 @@
-import 'package:facebook_ui_task/pages/dark_mode.dart';
+import 'package:facebook_ui_task/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatefulWidget {
-  static final String id = "home_page";
+class DarkMode extends StatefulWidget {
+  const DarkMode({Key? key}) : super(key: key);
+  static final String id = "dark_mode";
 
   @override
-  _HomePageState createState() => _HomePageState();
+  _DarkModeState createState() => _DarkModeState();
 }
 
-class _HomePageState extends State<HomePage> {
-  @override
+class _DarkModeState extends State<DarkMode> {
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey.shade400,
+      backgroundColor: Colors.grey.shade800,
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.black87,
         title: Text(
           "facebook",
           style: TextStyle(
               fontSize: 30,
               fontFamily: "ffont",
-              color: Colors.blueAccent,
+              color: Colors.white,
               fontWeight: FontWeight.bold),
         ),
         actions: [
@@ -28,15 +28,15 @@ class _HomePageState extends State<HomePage> {
             onPressed: () {},
             icon: Icon(
               Icons.search_rounded,
-              color: Colors.blueGrey,
+              color: Colors.white70,
             ),
           ),
           IconButton(
             padding: EdgeInsets.only(right: 10),
-            onPressed: () {Navigator.popAndPushNamed(context, DarkMode.id);},
+            onPressed: () {Navigator.popAndPushNamed(context, HomePage.id);},
             icon: Icon(
-              Icons.nights_stay_outlined,
-              color: Colors.blueGrey,
+              Icons.wb_sunny_outlined,
+              color: Colors.white70,
             ),
           ),
         ],
@@ -44,10 +44,10 @@ class _HomePageState extends State<HomePage> {
       ),
       body: ListView(
         children: [
- // post create qismi
+          // post create qismi
           Container(
             height: 120,
-            color: Colors.white,
+            color: Colors.black87,
             padding: EdgeInsets.only(top: 10, left: 10, right: 10),
             child: Column(
               children: [
@@ -60,10 +60,10 @@ class _HomePageState extends State<HomePage> {
                         width: 52,
                         child: CircleAvatar(
                           backgroundImage:
-                              AssetImage("assets/images/main/main_me.jpg"),
+                          AssetImage("assets/images/main/main_me.jpg"),
                         ),
                       ),
-  // post yozadigan field text bo'limi
+                      // post yozadigan field text bo'limi
                       Expanded(
                         child: Container(
                           height: 42,
@@ -74,7 +74,9 @@ class _HomePageState extends State<HomePage> {
                             border: Border.all(color: Colors.grey, width: 1),
                           ),
                           child: TextField(
+                            style: TextStyle(color: Colors.white70),
                             decoration: InputDecoration(
+                              hintStyle: TextStyle(fontSize: 15, color: Colors.white70, height: 1.5),
                               hintText: "Что у вас нового?",
                               border: InputBorder.none,
                             ),
@@ -100,15 +102,15 @@ class _HomePageState extends State<HomePage> {
                             SizedBox(
                               width: 5,
                             ),
-                            Text("Прямой эфир ")
+                            Text("Прямой эфир", style: TextStyle(color: Colors.white70),)
                           ],
                         ),
                       ),
 
 // ikonkalar orasidagi vertikal tayoqcha
                       Container(
-                        margin: EdgeInsets.symmetric(vertical: 10),
-                        padding: EdgeInsets.symmetric(horizontal: 5),
+                        margin: EdgeInsets.symmetric(vertical: 10, horizontal: 6),
+                        padding: EdgeInsets.symmetric(horizontal: 3),
                         width: 1,
                         color: Colors.grey.shade300,
                       ),
@@ -116,18 +118,18 @@ class _HomePageState extends State<HomePage> {
 // Foto ikonka
                       Expanded(
                           child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(
-                            Icons.photo_size_select_actual_outlined,
-                            color: Colors.green,
-                          ),
-                          SizedBox(
-                            width: 5,
-                          ),
-                          Text("Фото")
-                        ],
-                      )),
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                Icons.photo_size_select_actual_outlined,
+                                color: Colors.green,
+                              ),
+                              SizedBox(
+                                width: 5,
+                              ),
+                              Text("Фото", style: TextStyle(color: Colors.white70),)
+                            ],
+                          )),
                       // Location ikonka
 // ikonkalar orasidagi vertikal tayoqcha
                       Container(
@@ -137,8 +139,8 @@ class _HomePageState extends State<HomePage> {
                         color: Colors.grey.shade300,
                       ),
                       Expanded(
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Icon(
                               Icons.location_on_outlined,
@@ -147,9 +149,9 @@ class _HomePageState extends State<HomePage> {
                             SizedBox(
                               width: 5,
                             ),
-                            Text("Посещение")
+                            Text("Посещение",style: TextStyle(color: Colors.white70))
                           ],
-                      ),),
+                        ),),
                     ],
                   ),
                 )
@@ -157,12 +159,12 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
 
- // post stories qismi
+          // post stories qismi
           Container(
             margin: EdgeInsets.symmetric(vertical: 10),
             padding: EdgeInsets.symmetric(vertical: 10),
             height: 200,
-            color: Colors.white,
+            color: Colors.black87,
             // gortizontal swipe ebo'ladigan list view
             child: ListView(
               scrollDirection: Axis.horizontal,
@@ -213,7 +215,7 @@ class _HomePageState extends State<HomePage> {
           makeFeed(
               userName: 'Odilbek Mirzayev',
               userImage: 'assets/images/main/main_odilaka.jpg',
-              feedTime: '37 minute ago ago',
+              feedTime: '1 hr ago',
               feedText: "Odilbek Mirzayev sizga MFaktorni kuzatishni tavsiya qiladi. Siz ham do'stlaringizga tavsiya qilasizmi?",
               feedImage: 'assets/images/posts/img_1.png'
           ),
@@ -238,21 +240,21 @@ class _HomePageState extends State<HomePage> {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
           image: DecorationImage(
-            image: AssetImage(storyImage),
-            fit: BoxFit.cover
+              image: AssetImage(storyImage),
+              fit: BoxFit.cover
           ),
         ),
         child: Container(
           padding: EdgeInsets.all(7),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
-            gradient: LinearGradient(
-              begin: Alignment.bottomRight,
+              borderRadius: BorderRadius.circular(15),
+              gradient: LinearGradient(
+                  begin: Alignment.bottomRight,
                   colors: [
                     Colors.black.withOpacity(.9),
                     Colors.black.withOpacity(.1),
-                ]
-            )
+                  ]
+              )
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -262,11 +264,11 @@ class _HomePageState extends State<HomePage> {
                 width: 40,
                 height: 40,
                 decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  border: Border.all(color: Colors.blue, width: 2),
-                  image: DecorationImage(
-                    image: AssetImage(userImage),
-                  )
+                    shape: BoxShape.circle,
+                    border: Border.all(color: Colors.blue, width: 2),
+                    image: DecorationImage(
+                      image: AssetImage(userImage),
+                    )
                 ),
               ),
               Text(UserName, style: TextStyle(color: Colors.white, fontSize: 13, fontFamily: "roboto"),),
@@ -276,11 +278,11 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
- // make feed timeline funksiyasi
+  // make feed timeline funksiyasi
   Widget makeFeed({userName, userImage, feedTime, feedText, feedImage}) {
     return Container(
       margin: EdgeInsets.only(top: 10),
-      color: Colors.white,
+      color: Colors.black87,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -310,7 +312,7 @@ class _HomePageState extends State<HomePage> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                            Text(userName, style: TextStyle(color: Colors.grey[900], fontSize: 17, fontWeight: FontWeight.bold,fontFamily: "roboto"),),
+                            Text(userName, style: TextStyle(color: Colors.grey.shade300, fontSize: 17, fontWeight: FontWeight.bold,fontFamily: "roboto"),),
                             SizedBox(height: 3,),
                             Text(feedTime, style: TextStyle(fontSize: 15, color: Colors.grey,fontFamily: "roboto"),),
                           ],
@@ -318,14 +320,14 @@ class _HomePageState extends State<HomePage> {
                       ],
                     ),
                     IconButton(
-                      icon: Icon(Icons.more_horiz, size: 30, color: Colors.grey.shade600,),
+                      icon: Icon(Icons.more_horiz, size: 30, color: Colors.grey.shade300,),
                       onPressed: () {},
                     )
                   ],
                 ),
                 SizedBox(height: 10,),
 
-                Positioned(child: Text(feedText, style: TextStyle(fontSize: 15, color: Colors.grey[800], height: 1.5, fontFamily: "roboto"),)),
+                Positioned(child: Text(feedText, style: TextStyle(fontSize: 15, color: Colors.grey.shade300, height: 1.5, fontFamily: "roboto"),)),
                 SizedBox(height: 10,),
               ],
             ),
@@ -354,10 +356,10 @@ class _HomePageState extends State<HomePage> {
                         child: makeLove()
                     ),
                     SizedBox(width: 3,),
-                    Text("2.3K", style: TextStyle(fontSize: 15, color: Colors.grey[800]),)
+                    Text("2.3K", style: TextStyle(fontSize: 15, color: Colors.grey.shade300),)
                   ],
                 ),
-                Text("400 Comments", style: TextStyle(fontSize: 13, color: Colors.grey[800]),)
+                Text("400 Comments", style: TextStyle(fontSize: 13, color: Colors.grey.shade300),)
               ],
             ),
           ),
@@ -427,7 +429,7 @@ class _HomePageState extends State<HomePage> {
           children: <Widget>[
             Icon(Icons.chat, color: Colors.grey, size: 18),
             SizedBox(width: 5,),
-            Text("Comment", style: TextStyle(color: Colors.grey),)
+            Text("Comment", style: TextStyle(color: Colors.grey.shade300),)
           ],
         ),
       ),
@@ -448,5 +450,4 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
-
 }

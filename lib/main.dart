@@ -1,3 +1,4 @@
+import 'package:facebook_ui_task/pages/dark_mode.dart';
 import 'package:facebook_ui_task/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
@@ -14,6 +15,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: "Facebook clone",
       home: HomePage(),
+      routes: {
+        HomePage.id:(context)=>HomePage(),
+        DarkMode.id:(context)=>DarkMode(),
+      },
     );
   }
 }
