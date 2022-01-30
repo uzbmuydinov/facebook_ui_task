@@ -194,6 +194,28 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
           ),
+// post list qismi
+          makeFeed(
+              userName: 'Khurshidbek Kurbanov',
+              userImage: 'assets/images/main/main_xurshidaka.jpg',
+              feedTime: '1 hr ago',
+              feedText: 'Army of Android and Flutter',
+              feedImage: 'assets/images/posts/flutter_army.jpg'
+          ),
+          makeFeed(
+              userName: 'Odilbek Mirzayev',
+              userImage: 'assets/images/main/main_odilaka.jpg',
+              feedTime: '1 hr ago',
+              feedText: 'Qudratimizga shubha qilsangiz, biz yetishtirgan kadrlarga boqing',
+              feedImage: 'assets/images/posts/img_1.png'
+          ),
+          makeFeed(
+              userName: 'Мўминжон Мўйдинов',
+              userImage: 'assets/images/main/main_me.jpg',
+              feedTime: '15 minute ago',
+              feedText: "Qo'lida olg'asi bor odamning ko'ziga hamma narsa mix bo'lib ko'rinadi",
+              feedImage: 'assets/images/posts/Molotok.jpg'
+          ),
         ],
       ),
     );
@@ -246,4 +268,177 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
+ // make feed timeline funksiyasi
+  Widget makeFeed({userName, userImage, feedTime, feedText, feedImage}) {
+    return Container(
+      margin: EdgeInsets.only(top: 10),
+      color: Colors.white,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+
+          Container(
+            padding: EdgeInsets.only(left: 10,right: 10),
+            child: Column(
+              children: [
+                SizedBox(height: 10,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Row(
+                      children: <Widget>[
+                        Container(
+                          width: 50,
+                          height: 50,
+                          decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              image: DecorationImage(
+                                  image: AssetImage(userImage),
+                                  fit: BoxFit.cover
+                              )
+                          ),
+                        ),
+                        SizedBox(width: 10,),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text(userName, style: TextStyle(color: Colors.grey[900], fontSize: 17, fontWeight: FontWeight.bold,fontFamily: "roboto"),),
+                            SizedBox(height: 3,),
+                            Text(feedTime, style: TextStyle(fontSize: 15, color: Colors.grey,fontFamily: "roboto"),),
+                          ],
+                        )
+                      ],
+                    ),
+                    IconButton(
+                      icon: Icon(Icons.more_horiz, size: 30, color: Colors.grey.shade600,),
+                      onPressed: () {},
+                    )
+                  ],
+                ),
+                SizedBox(height: 10,),
+
+                Positioned(child: Text(feedText, style: TextStyle(fontSize: 15, color: Colors.grey[800], height: 1.5, fontFamily: "roboto"),)),
+                SizedBox(height: 10,),
+              ],
+            ),
+          ),
+
+          Container(
+            height: 240,
+            decoration: BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage(feedImage),
+                    fit: BoxFit.cover
+                )
+            ),
+          ),
+          SizedBox(height: 20,),
+          Container(
+            padding: EdgeInsets.only(left: 10,right: 10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Row(
+                  children: <Widget>[
+                    makeLike(),
+                    Transform.translate(
+                        offset: Offset(-5, 0),
+                        child: makeLove()
+                    ),
+                    SizedBox(width: 3,),
+                    Text("2.3K", style: TextStyle(fontSize: 15, color: Colors.grey[800]),)
+                  ],
+                ),
+                Text("400 Comments", style: TextStyle(fontSize: 13, color: Colors.grey[800]),)
+              ],
+            ),
+          ),
+          SizedBox(height: 20,),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              makeLikeButton(isActive: true),
+              makeCommentButton(),
+              makeShareButton(),
+            ],
+          ),
+          SizedBox(height: 10,),
+        ],
+      ),
+    );
+  }
+  Widget makeLike() {
+    return Container(
+      width: 25,
+      height: 25,
+      decoration: BoxDecoration(
+          color: Colors.blue,
+          shape: BoxShape.circle,
+          border: Border.all(color: Colors.white)
+      ),
+      child: Center(
+        child: Icon(Icons.thumb_up, size: 12, color: Colors.white),
+      ),
+    );
+  }
+  Widget makeLove() {
+    return Container(
+      width: 25,
+      height: 25,
+      decoration: BoxDecoration(
+          color: Colors.red,
+          shape: BoxShape.circle,
+          border: Border.all(color: Colors.white)
+      ),
+      child: Center(
+        child: Icon(Icons.favorite, size: 12, color: Colors.white),
+      ),
+    );
+  }
+  Widget makeLikeButton({isActive}) {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+      child: Center(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Icon(Icons.thumb_up, color: isActive ? Colors.blue : Colors.grey, size: 18,),
+            SizedBox(width: 5,),
+            Text("Like", style: TextStyle(color: isActive ? Colors.blue : Colors.grey),)
+          ],
+        ),
+      ),
+    );
+  }
+  Widget makeCommentButton() {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+      child: Center(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Icon(Icons.chat, color: Colors.grey, size: 18),
+            SizedBox(width: 5,),
+            Text("Comment", style: TextStyle(color: Colors.grey),)
+          ],
+        ),
+      ),
+    );
+  }
+  Widget makeShareButton() {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+      child: Center(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Icon(Icons.share, color: Colors.grey, size: 18),
+            SizedBox(width: 5,),
+            Text("Share", style: TextStyle(color: Colors.grey),)
+          ],
+        ),
+      ),
+    );
+  }
+
 }

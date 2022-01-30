@@ -31,6 +31,7 @@ flutter:
     - assets/images/
     - assets/images/main/
     - assets/images/stories/
+    - assets/images/posts/
   #   - images/a_dot_ham.jpeg
 
 # shriftlarni shu yerga qo'sh
@@ -38,6 +39,10 @@ fonts:
   - family: ffont
     fonts:
       - assets/fonts/facebook_font.otf
+
+  - family: roboto
+    fonts:
+      - assets/fonts/Roboto-Regular.ttf
 
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
