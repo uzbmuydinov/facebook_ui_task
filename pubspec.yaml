@@ -1,0 +1,51 @@
+name: facebook_ui_task
+description: A new Flutter project.
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.15.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+# packagelarni shu yerga qo'sh
+  cupertino_icons: ^1.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^1.0.0
+
+# The following section is specific to Flutter.
+flutter:
+
+  uses-material-design: true
+# rasmlarni shu yerga qo'sh
+  assets:
+    - assets/images/
+    - assets/images/main/
+    - assets/images/stories/
+  #   - images/a_dot_ham.jpeg
+
+# shriftlarni shu yerga qo'sh
+fonts:
+  - family: ffont
+    fonts:
+      - assets/fonts/facebook_font.otf
+
+  #       - asset: fonts/Schyler-Italic.ttf
+  #         style: italic
+  #   - family: Trajan Pro
+  #     fonts:
+  #       - asset: fonts/TrajanPro.ttf
+  #       - asset: fonts/TrajanPro_Bold.ttf
+  #         weight: 700
+  #
+  # For details regarding fonts from package dependencies,
+  # see https://flutter.dev/custom-fonts/#from-packages
