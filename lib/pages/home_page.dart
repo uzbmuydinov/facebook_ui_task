@@ -9,6 +9,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -170,9 +172,8 @@ class _HomePageState extends State<HomePage> {
               children: [
                 SizedBox(width: 10,),
 
-                makeStory(
+                makeMeStory(
                   storyImage: "assets/images/stories/story_me.jpg",
-                  userImage: "assets/images/main/main_me.jpg",
                   UserName: "Создатъ историю",
                 ),
 
@@ -207,8 +208,8 @@ class _HomePageState extends State<HomePage> {
               userName: 'Khurshidbek Kurbanov',
               userImage: 'assets/images/main/main_xurshidaka.jpg',
               feedTime: '1 hr ago',
-              feedText: 'Army of Android and Flutter',
-              feedImage: 'assets/images/posts/flutter_army.jpg'
+              feedText: 'Flutter army',
+              feedImage: 'assets/images/posts/flutter_army.jpg' 
           ),
           makeFeed(
               userName: 'Odilbek Mirzayev',
@@ -221,8 +222,8 @@ class _HomePageState extends State<HomePage> {
               userName: 'Мўминжон Мўйдинов',
               userImage: 'assets/images/main/main_me.jpg',
               feedTime: '15 minute ago',
-              feedText: "Qo'lida olg'asi bor odamning ko'ziga hamma narsa mix bo'lib ko'rinadi",
-              feedImage: 'assets/images/posts/Molotok.jpg'
+              feedText: "Dasturlashni yangi o'rgana boshlagan va hozirgi holat",
+              feedImage: 'assets/images/posts/img_2.png'
           ),
         ],
       ),
@@ -283,11 +284,13 @@ class _HomePageState extends State<HomePage> {
       color: Colors.white,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
 
           Container(
             padding: EdgeInsets.only(left: 10,right: 10),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(height: 10,),
                 Row(
@@ -325,7 +328,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 SizedBox(height: 10,),
 
-                Positioned(child: Text(feedText, style: TextStyle(fontSize: 15, color: Colors.grey[800], height: 1.5, fontFamily: "roboto"),)),
+                Positioned(child: Text(feedText, textAlign: TextAlign.start, style: TextStyle(fontSize: 15, color: Colors.grey[800], height: 1.5, fontFamily: "roboto"),)),
                 SizedBox(height: 10,),
               ],
             ),
@@ -354,10 +357,10 @@ class _HomePageState extends State<HomePage> {
                         child: makeLove()
                     ),
                     SizedBox(width: 3,),
-                    Text("2.3K", style: TextStyle(fontSize: 15, color: Colors.grey[800]),)
+                    Text("1.7K", style: TextStyle(fontSize: 15, color: Colors.grey[800]),)
                   ],
                 ),
-                Text("400 Comments", style: TextStyle(fontSize: 13, color: Colors.grey[800]),)
+                Text("47  Comments", style: TextStyle(fontSize: 13, color: Colors.grey[800]),)
               ],
             ),
           ),
@@ -449,4 +452,39 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+  Widget makeMeStory({storyImage,UserName}){
+    return AspectRatio(
+      aspectRatio: 1.3/2,
+      child: Container(
+        margin: EdgeInsets.only(right: 10),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15),
+          image: DecorationImage(
+              image: AssetImage(storyImage),
+              fit: BoxFit.cover
+          ),
+        ),
+        child: Container(
+          padding: EdgeInsets.all(7),
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+              gradient: LinearGradient(
+                  begin: Alignment.bottomRight,
+                  colors: [
+                    Colors.black.withOpacity(.9),
+                    Colors.black.withOpacity(.1),
+                  ]
+              )
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(UserName, style: TextStyle(color: Colors.white, fontSize: 13, fontFamily: "roboto"),),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
 }
